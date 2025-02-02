@@ -6,6 +6,8 @@ import { useCart } from "../context/CartContext"; // Import useCart
 const ProductCard = ({ product }) => {
     const { addToCart } = useCart(); // Access addToCart function
 
+    console.log("addToCart in ProductCard:", addToCart); // Debugging
+
     return (
         <div className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
             <div className="card h-100 shadow-sm">

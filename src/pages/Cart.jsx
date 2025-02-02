@@ -4,7 +4,9 @@ import { Link } from "react-router-dom";
 import { useCart } from "../context/CartContext"; // Import useCart
 
 const Cart = () => {
-    const { cartItems, removeFromCart, updateQuantity } = useCart(); // Access cart state and functions
+    const { cartItems, removeFromCart } = useCart(); // Access cartItems and removeFromCart
+
+    console.log("Cart items:", cartItems); // Debugging
 
     // Calculate total price
     const totalPrice = cartItems.reduce(
@@ -26,23 +28,7 @@ const Cart = () => {
                                 <p>${item.price.toFixed(2)}</p>
                             </div>
                             <div className="item-actions">
-                                <button
-                                    className="btn btn-sm btn-outline-secondary"
-                                    onClick={() =>
-                                        updateQuantity(item.id, item.quantity - 1)
-                                    }
-                                >
-                                    -
-                                </button>
                                 <span className="quantity">{item.quantity}</span>
-                                <button
-                                    className="btn btn-sm btn-outline-secondary"
-                                    onClick={() =>
-                                        updateQuantity(item.id, item.quantity + 1)
-                                    }
-                                >
-                                    +
-                                </button>
                                 <button
                                     className="btn btn-sm btn-danger ms-2"
                                     onClick={() => removeFromCart(item.id)}
