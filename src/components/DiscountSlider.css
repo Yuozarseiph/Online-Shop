@@ -1,0 +1,58 @@
+/* src/components/DiscountSlider.css */
+.slide-image {
+  overflow: hidden;
+  width: 400px;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 15px; 
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out;
+}
+
+.slide-image:hover {
+  transform: scale(1.05);
+}
+
+.slide-content {
+  position: relative;
+  text-align: center;
+  color: #fff;
+  overflow: hidden; 
+  border-radius: 15px;
+}
+
+.slide-text {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.6);
+  padding: 15px 20px;
+  border-radius: 8px;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+.slide-text h3 {
+  font-size: 24px;
+  margin: 0 0 10px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* اضافه کردن سایه به متن */
+}
+
+.slide-text p {
+  font-size: 18px;
+  margin: 0;
+  color: #ffcc00; /* رنگ قیمت به صورت طلایی */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+.discount-slider{
+  background-color: #0d6efd;
+  overflow: hidden;
+  border-radius: 1rem;
+  padding: 0.5rem;
+}
+.discount-slider h2{
+  background-color: #0d6efd;
+  color: white;
+  padding: 0.5rem;
+}
