@@ -95,7 +95,7 @@ const Footer = () => {
                   placeholder="Enter your email"
                   aria-label="Email"
                 />
-                <button className="btn btn-primary" type="submit">
+                <button style={{borderRadius: "200px"}} className="btn btn-primary m-4" type="submit">
                   Subscribe
                 </button>
               </div>
