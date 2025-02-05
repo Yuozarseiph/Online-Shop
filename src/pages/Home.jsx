@@ -5,7 +5,9 @@ import Header from "../components/Header";
 import BannerSlider from "../components/BannerSlider";
 import ProductSection from "../components/ProductSection";
 import Footer from "../components/Footer";
-import { useCart } from "../context/CartContext"; 
+import { useCart } from "../context/CartContext";
+import "bootstrap/dist/css/bootstrap.min.css"; // Bootstrap first
+import "../App.css"; // Custom styles after Bootstrap
 
 const Home = () => {
   const [products, setProducts] = useState([]);

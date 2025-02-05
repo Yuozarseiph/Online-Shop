@@ -1,10 +1,9 @@
-
 import React from "react";
 import { Link } from "react-router-dom";
 import { useCart } from "../context/CartContext"; // Import useCart
 
 const Cart = () => {
-  const { cartItems, addToCart, removeFromCart } = useCart(); // Access cartItems and removeFromCart
+  const { cartItems, addToCart, removeFromCart, decreaseQuantity } = useCart();
 
   const totalPrice = cartItems.reduce(
     (total, item) => total + item.price * item.quantity,
@@ -45,13 +44,13 @@ const Cart = () => {
               <div className="item-actions d-flex align-items-center">
                 <button
                   className="btn btn-sm btn-secondary me-2"
-                  onClick={() =>
-                    handleQuantityChange(item.id, item.quantity - 1)
-                  }
+                  onClick={() => decreaseQuantity(item.id)}
                 >
                   -
                 </button>
+
                 <span className="quantity me-2">{item.quantity}</span>
+
                 <button
                   className="btn btn-sm btn-secondary me-2"
                   onClick={() =>
@@ -60,6 +59,7 @@ const Cart = () => {
                 >
                   +
                 </button>
+
                 <button
                   className="btn btn-sm btn-danger"
                   onClick={() => removeFromCart(item.id)}
