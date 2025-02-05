@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useCart } from "../context/CartContext"; // Import useCart
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 const Cart = () => {
   const { cartItems, addToCart, removeFromCart, decreaseQuantity } = useCart();
@@ -19,6 +21,8 @@ const Cart = () => {
   };
 
   return (
+    <>
+    <Header/>
     <div className="cart-page">
       <h2 className="text-center mb-4">Shopping Cart</h2>
       {cartItems.length > 0 ? (
@@ -90,6 +94,8 @@ const Cart = () => {
         </Link>
       </div>
     </div>
+    <Footer/>
+    </>
   );
 };
 
