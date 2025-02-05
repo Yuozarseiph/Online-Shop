@@ -1,12 +1,13 @@
-// src/pages/ProductDetail.jsx
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
+import { useCart } from "../context/CartContext"; // Import useCart
 
 const ProductDetail = () => {
   const { id } = useParams(); // Get product ID from URL
+  const { addToCart } = useCart(); // Access addToCart function from context
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -47,7 +48,15 @@ const ProductDetail = () => {
             <h2>{product.title}</h2>
             <p className="text-success fw-bold">${product.price}</p>
             <p>{product.description}</p>
-            <button className="btn btn-primary">Add to Cart</button>
+            <button
+              className="btn btn-primary mt-auto"
+              onClick={() => {
+                console.log("Button clicked, adding product:", product);
+                addToCart(product); // Add product to cart
+              }}
+            >
+              Add to Cart
+            </button>
           </div>
         </div>
       </div>
