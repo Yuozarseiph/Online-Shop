@@ -1,4 +1,3 @@
-// src/pages/Auth.js
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
@@ -6,6 +5,7 @@ import { useAuth } from "../context/AuthContext";
 const Auth = () => {
   const [activeTab, setActiveTab] = useState("login");
   const [formData, setFormData] = useState({ email: "", password: "" });
+  const [error, setError] = useState("");
   const { login, register } = useAuth();
   const navigate = useNavigate();
 
@@ -16,7 +16,19 @@ const Auth = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError("");
     try {
+      if (!formData.email || !formData.password) {
+        setError("Please fill out both fields.");
+        return;
+      }
+
+      const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      if (!emailPattern.test(formData.email)) {
+        setError("Please enter a valid email.");
+        return;
+      }
+
       if (activeTab === "login") {
         await login(formData);
         navigate("/dashboard");
@@ -25,7 +37,7 @@ const Auth = () => {
         navigate("/dashboard");
       }
     } catch (error) {
-      console.error("Error:", error.message);
+      setError(error.message || "An error occurred, please try again.");
     }
   };
 
@@ -48,6 +60,8 @@ const Auth = () => {
 
       <form onSubmit={handleSubmit} className="auth-form">
         <h2>{activeTab === "login" ? "Login" : "Register"}</h2>
+
+        {error && <div className="alert alert-danger">{error}</div>}
 
         <div className="form-group">
           <label>Email</label>

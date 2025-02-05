@@ -4,14 +4,12 @@ import React, { createContext, useState, useContext } from "react";
 const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
-    const [cartItems, setCartItems] = useState([]); // State for cart items
+    const [cartItems, setCartItems] = useState([]);
 
-    // Add a product to the cart
     const addToCart = (product) => {
-        console.log("Adding product to cart:", product); // Debugging
+        console.log("Adding product to cart:", product);
         const existingItem = cartItems.find((item) => item.id === product.id);
         if (existingItem) {
-            // If the product already exists, increase its quantity
             setCartItems(
                 cartItems.map((item) =>
                     item.id === product.id
@@ -20,12 +18,10 @@ export const CartProvider = ({ children }) => {
                 )
             );
         } else {
-            // If the product is new, add it to the cart
             setCartItems([...cartItems, { ...product, quantity: 1 }]);
         }
     };
 
-    // Remove a product from the cart
     const removeFromCart = (id) => {
         setCartItems(cartItems.filter((item) => item.id !== id));
     };

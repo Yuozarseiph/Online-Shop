@@ -9,9 +9,8 @@ const Products = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [searchTerm, setSearchTerm] = useState(""); // State for search input
+  const [searchTerm, setSearchTerm] = useState("");
 
-  // Fetch products from API
   useEffect(() => {
     const fetchProducts = async () => {
       try {
@@ -27,7 +26,6 @@ const Products = () => {
     fetchProducts();
   }, []);
 
-  // Filter products based on search term
   const filteredProducts = products.filter((product) =>
     product.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
@@ -36,7 +34,6 @@ const Products = () => {
     <>
     <Header/>
     <div className="container py-5">
-      {/* Search bar */}
       <div className="mb-4">
         <input
           type="text"
@@ -47,13 +44,10 @@ const Products = () => {
         />
       </div>
 
-      {/* Display loading message */}
       {loading && <p className="text-center">Loading products...</p>}
 
-      {/* Display error message */}
       {error && <p className="text-danger text-center">{error}</p>}
 
-      {/* Display products */}
       <div className="row">
         {filteredProducts.length > 0 ? (
           filteredProducts.map((product) => (

@@ -5,7 +5,6 @@ const Footer = () => {
   return (
     <footer className="bg-light text-dark py-5">
       <div className="container">
-        {/* بخش اول: لینک‌های مفید */}
         <div className="row mb-4">
           <div className="col-md-3">
             <h5>Useful Links</h5>
@@ -27,8 +26,6 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-
-          {/* بخش دوم: اطلاعات تماس */}
           <div className="col-md-3">
             <h5>Contact Info</h5>
             <ul className="list-unstyled">
@@ -43,8 +40,6 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-
-          {/* بخش سوم: شبکه‌های اجتماعی */}
           <div className="col-md-3">
             <h5>Follow Us</h5>
             <div className="d-flex">
@@ -82,8 +77,6 @@ const Footer = () => {
               </a>
             </div>
           </div>
-
-          {/* بخش چهارم: نظرسنجی یا خبرنامه */}
           <div className="col-md-3">
             <h5>Subscribe to Newsletter</h5>
             <p>Get the latest updates and offers.</p>
@@ -102,8 +95,6 @@ const Footer = () => {
             </form>
           </div>
         </div>
-
-        {/* حقوق مادی */}
         <div className="text-center border-top pt-4">
           <p className="mb-0">
             &copy; {new Date().getFullYear()} E-Commerce. All rights reserved.

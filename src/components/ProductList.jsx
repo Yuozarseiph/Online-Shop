@@ -7,8 +7,6 @@ const ProductList = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
-  // دریافت محصولات از API
   useEffect(() => {
     const fetchProducts = async () => {
       try {
@@ -23,8 +21,6 @@ const ProductList = () => {
 
     fetchProducts();
   }, []);
-
-  // تابع اضافه کردن به سبد خرید
   const handleAddToCart = (product) => {
     alert(`Added ${product.title} to cart!`);
     console.log("Added to cart:", product);

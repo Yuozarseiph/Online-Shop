@@ -1,6 +1,7 @@
 // src/pages/Dashboard.js
 import React from "react";
 import { useAuth } from "../context/AuthContext";
+import { Link } from "react-router-dom";
 
 const Dashboard = () => {
     const { user, logout } = useAuth();
@@ -16,6 +17,7 @@ const Dashboard = () => {
             <button className="btn btn-danger" onClick={logout}>
                 Logout
             </button>
+            <Link className="btn btn-primary" to={"/"}>Back to Home</Link>
         </div>
     );
 };

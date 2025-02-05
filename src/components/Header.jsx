@@ -1,15 +1,18 @@
-// src/components/Header.js
 import React from "react";
+import { Link } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
-const rounded = {borderRadius: '100px'}
+const rounded = { borderRadius: "100px" };
+
 const Header = () => {
+  const { user } = useAuth();
+
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
       <div className="container">
-        {/* لوگو */}
-        <a className="navbar-brand fw-bold text-primary" href="/">
+        <Link className="navbar-brand fw-bold text-primary" to="/">
           <span className="text-success">E</span>-Commerce
-        </a>
+        </Link>
 
         <button
           className="navbar-toggler"
@@ -26,29 +29,38 @@ const Header = () => {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item text-nowrap">
-              <a className="nav-link active" aria-current="page" href="/">
+              <Link className="nav-link active" aria-current="page" to="/">
                 Home
-              </a>
+              </Link>
             </li>
             <li className="nav-item text-nowrap">
-              <a className="nav-link" href="/products">
+              <Link className="nav-link" to="/products">
                 Products
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link text-nowrap" href="/about">
+              <Link className="nav-link text-nowrap" to="/about">
                 About Us
-              </a>
+              </Link>
             </li>
           </ul>
 
           <div className="d-flex flex-column flex-lg-row align-items-center gap-2">
-            <a style={rounded} href="/cart" className="btn btn-outline-primary w-100 text-nowrap">
+            <Link
+              style={rounded}
+              to="/cart"
+              className="btn btn-outline-primary w-100 text-nowrap"
+            >
               <i className="bi bi-cart me-1"></i> Cart
-            </a>
-            <a style={rounded} href="/auth" className="btn btn-primary w-100 text-nowrap">
-              <i className="bi bi-box-arrow-in-right me-1"></i> Login / Sign Up
-            </a>
+            </Link>
+            <Link
+              style={rounded}
+              to={user ? "/dashboard" : "/auth"}
+              className="btn btn-primary w-100 text-nowrap"
+            >
+              <i className="bi bi-box-arrow-in-right me-1"></i>
+              {user ? "Dashboard" : "Login / Sign Up"}
+            </Link>
           </div>
         </div>
       </div>

@@ -36,13 +36,13 @@
 .slide-text h3 {
   font-size: 24px;
   margin: 0 0 10px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* اضافه کردن سایه به متن */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .slide-text p {
   font-size: 18px;
   margin: 0;
-  color: #ffcc00; /* رنگ قیمت به صورت طلایی */
+  color: #ffcc00;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 .discount-slider{
