@@ -68,7 +68,7 @@ body {
   color: #fff;
 }
 
-/* src/App.css */
+/* Footer Style */
 footer {
   margin-top: auto;
 }
@@ -83,6 +83,10 @@ footer .bi {
 
 footer .bi:hover {
   transform: scale(1.2);
+}
+
+.form-control{
+  border-radius: 1000px;
 }
 
 /*Card Style*/

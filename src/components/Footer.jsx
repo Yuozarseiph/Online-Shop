@@ -84,7 +84,7 @@ const Footer = () => {
               <div className="input-group mb-3">
                 <input
                   type="email"
-                  className="form-control"
+                  className="form-control border-"
                   placeholder="Enter your email"
                   aria-label="Email"
                 />
