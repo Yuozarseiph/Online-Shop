@@ -1,4 +1,4 @@
-// src/components/DiscountSlider.js
+
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Swiper, SwiperSlide } from "swiper/react";
